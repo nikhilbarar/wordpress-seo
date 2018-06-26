@@ -41,11 +41,11 @@ if ( is_array( $post_types ) && $post_types !== array() ) {
 		echo '<div class="paper tab-block" id="' . esc_attr( $post_type->name . '-titles-metas' ) . '">';
 
 		$toggle_icon = 'dashicons-arrow-up-alt2';
-		$class 		 = 'toggleable-container';
+		$class       = 'toggleable-container';
 
 		if ( $id !== 'post' ) {
 			$toggle_icon = 'dashicons-arrow-down-alt2';
-			$class .= ' toggleable-container-hidden';
+			$class      .= ' toggleable-container-hidden';
 		}
 
 		printf(
@@ -58,13 +58,13 @@ if ( is_array( $post_types ) && $post_types !== array() ) {
 
 		echo '<div class="' . $class . '">';
 
-		// translators: %s is the singular version of the post type's name.
+		/* translators: %s is the singular version of the post type's name. */
 		echo '<h3>' . esc_html( sprintf( __( 'Settings for single %s URLs', 'wordpress-seo' ), $single_label ) ) . '</h3>';
 
 		$view_utils->show_post_type_settings( $post_type );
 
 		if ( $post_type->has_archive === true ) {
-			// translators: %s is the plural version of the post type's name.
+			/* translators: %s is the plural version of the post type's name. */
 			echo '<h3>' . esc_html( sprintf( __( 'Settings for %s archive', 'wordpress-seo' ), $plural_label ) ) . '</h3>';
 
 			$custom_post_type_archive_help = $view_utils->search_results_setting_help( $post_type, 'archive' );
@@ -86,7 +86,7 @@ if ( is_array( $post_types ) && $post_types !== array() ) {
 			$editor->render();
 
 			if ( WPSEO_Options::get( 'breadcrumbs-enable' ) === true ) {
-				// translators: %s is the plural version of the post type's name.
+				/* translators: %s is the plural version of the post type's name. */
 				echo '<h4>' . esc_html( sprintf( __( 'Breadcrumb settings for %s archive', 'wordpress-seo' ), $plural_label ) ) . '</h4>';
 				$yform->textinput( 'bctitle-ptarchive-' . $post_type->name, __( 'Breadcrumbs title', 'wordpress-seo' ) );
 			}
@@ -96,7 +96,7 @@ if ( is_array( $post_types ) && $post_types !== array() ) {
 		 * Allow adding a custom checkboxes to the admin meta page - Post Types tab
 		 *
 		 * @api  WPSEO_Admin_Pages  $yform  The WPSEO_Admin_Pages object
-		 * @api  String  $name  The post type name
+		 * @api  String             $name   The post type name
 		 */
 		do_action( 'wpseo_admin_page_meta_post_types', $yform, $post_type->name );
 
